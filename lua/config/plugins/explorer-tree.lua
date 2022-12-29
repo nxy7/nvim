@@ -2,8 +2,8 @@ return {
 	'nvim-neo-tree/neo-tree.nvim',
 	lazy = false,
 	keys = {
-		{ "<leader>e", "<cmd>Neotree<cr>", desc = "File Explorer Toggle" },
-		{ "<c-b>", "<cmd>Neotree<cr>", desc = "File Explorer Toggle" }
+		{ "<leader>e", "<cmd>NeoTreeRevealToggle<cr>", desc = "File Explorer Toggle" },
+		{ "<c-b>", "<cmd>NeoTreeRevealToggle<cr>", desc = "File Explorer Toggle" }
 	},
 	dependencies = {
 		"MunifTanjim/nui.nvim",
@@ -27,6 +27,7 @@ return {
 		-- in the form "LspDiagnosticsSignWarning"
 
 		require("neo-tree").setup({
+			follow_current_file = true,
 			close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
 			popup_border_style = "rounded",
 			enable_git_status = true,

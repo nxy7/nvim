@@ -10,3 +10,6 @@ vim.opt.tabstop = 2
 vim.diagnostic.config({
 	virtual_text = true
 })
+
+vim.opt.ignorecase = true
+vim.opt.smartcase = true

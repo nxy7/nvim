@@ -1,8 +1,9 @@
 return {
 	"akinsho/bufferline.nvim",
-	tag = "v3.*",
+	-- tag = "v3.*",
 	lazy = false,
-	config = {},
+	config = {
+	},
 	keys = {
 		{ "<leader>bj", "<cmd>BufferLinePick<cr>", desc = "Pick Buffer" },
 		-- { "<c-p>", "<cmd>BufferLinePick<cr>", desc = "Pick Buffer" },

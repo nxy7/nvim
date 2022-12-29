@@ -27,9 +27,6 @@ local lsp_symbols = {
 }
 return {
 	"VonHeikemen/lsp-zero.nvim",
-	config = {
-
-	},
 	dependencies = {
 		-- LSP Support
 		{ 'neovim/nvim-lspconfig' },
@@ -135,7 +132,7 @@ return {
 		{ 'L3MON4D3/LuaSnip' },
 		{ 'rafamadriz/friendly-snippets' },
 	},
-	init = function()
+	config = function()
 		local lsp = require('lsp-zero')
 		lsp.preset('recommended')
 
@@ -147,7 +144,7 @@ return {
 		})
 
 		vim.api.nvim_create_autocmd(
-			{ "BufWrite", "InsertLeave" },
+			{ "BufWrite" },
 			{
 				pattern = "*",
 				callback = function(ev)
