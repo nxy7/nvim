@@ -1,6 +1,7 @@
 return {
 	"ibhagwan/fzf-lua",
-	dependencies = { "junegunn/fzf" },
+	dependencies = { "junegunn/fzf", },
+	lazy = false,
 	keys = {
 		{ "<leader>sf", "<cmd>:FzfLua files<cr>", desc = "Search Files" },
 		{ "<leader>sg", "<cmd>:FzfLua git_files<cr>", desc = "Search Git Files" },

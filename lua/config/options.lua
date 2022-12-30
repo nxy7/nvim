@@ -1,5 +1,5 @@
 vim.opt.autowrite = true
-vim.opt.clipboard = "unnamedplus"
+-- vim.opt.clipboard = "unnamedplus"
 vim.opt.relativenumber = true
 vim.opt.number = true
 vim.opt.shiftround = true
