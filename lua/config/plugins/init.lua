@@ -21,7 +21,7 @@ return {
 	},
 	-- "tpope/vim-fugitive",
 	-- "jesseduffield/lazygit",
-	"b0o/SchemaStore.nvim",
+	-- "b0o/SchemaStore.nvim",
 	"nvim-lua/plenary.nvim",
 	{
 		"ThePrimeagen/refactoring.nvim",
