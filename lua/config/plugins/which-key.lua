@@ -7,6 +7,7 @@ return {
 		wk.register({
 			s = "Search",
 			g = "Git",
+			G = "ChatGPT",
 			l = "LSP",
 			b = "Buffer",
 			c = "Neogen"

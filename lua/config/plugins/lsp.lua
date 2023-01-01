@@ -1,3 +1,5 @@
+-- necesarry as neodev needs to be configured before LSP
+
 return {
 	-- LSP Support
 	{
@@ -5,11 +7,12 @@ return {
 		lazy = false,
 		config = function()
 			require("mason").setup()
-		end
+		end,
 	},
 	{
 		'williamboman/mason-lspconfig.nvim',
 		lazy = false,
+		dependencies = { 'folke/neodev.nvim', 'L3MON4D3/LuaSnip' },
 		config = function()
 			require("mason-lspconfig").setup(
 				{

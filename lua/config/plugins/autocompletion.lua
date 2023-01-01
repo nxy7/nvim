@@ -25,10 +25,19 @@ local lsp_symbols = {
 	Operator = "   (Operator)",
 	TypeParameter = "   (TypeParameter)",
 }
+
 return {
 	-- Autocompletion
 	{
 		'hrsh7th/nvim-cmp',
+
+		dependencies = {
+			{ 'hrsh7th/cmp-path' },
+			{ 'saadparwaiz1/cmp_luasnip' },
+			{ 'hrsh7th/cmp-nvim-lsp' },
+			{ 'hrsh7th/cmp-nvim-lua' },
+		},
+
 		config = function()
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
@@ -41,8 +50,8 @@ return {
 					duplicates = {
 						nvim_lsp = 1,
 						luasnip = 1,
-						cmp_tabnine = 1,
-						buffer = 1,
+						-- cmp_tabnine = 1,
+						-- buffer = 1,
 						path = 1,
 					},
 					completion = {
@@ -50,10 +59,10 @@ return {
 						autocomplete = { "TextChanged", "InsertEnter" },
 					},
 					sources = {
-						-- { name = "buffer" },
+						{ name = "buffer", priority = 1 },
 						{ name = "nvim_lsp", priority = 10 },
-						{ name = "luasnip" },
-						-- { name = "neorg" },
+						{ name = "luasnip", priority = 9 },
+						{ name = "cmp-path", priority = 8 },
 					},
 					mapping = {
 						["<C-k>"] = cmp.mapping.select_prev_item(),
@@ -98,27 +107,23 @@ return {
 						format = function(entry, item)
 							item.kind = lsp_symbols[item.kind]
 							item.menu = ({
-								-- buffer = "[Buffer]",
+								buffer = "[Buffer]",
 								nvim_lsp = "[LSP]",
 								luasnip = "[Snippet]",
-								-- neorg = "[Neorg]",
+								neorg = "[Neorg]",
 							})[entry.source.name]
 
 							return item
 						end,
 					},
-					-- snippet = {
-					-- 	expand = function(args)
-					-- 		luasnip.lsp_expand(args.body)
-					-- 	end,
-					-- },
+					snippet = {
+						expand = function(args)
+							luasnip.lsp_expand(args.body)
+						end,
+					},
 				}
 			)
 		end
 	},
 	-- { 'hrsh7th/cmp-buffer' },
-	{ 'hrsh7th/cmp-path' },
-	{ 'saadparwaiz1/cmp_luasnip' },
-	{ 'hrsh7th/cmp-nvim-lsp' },
-	{ 'hrsh7th/cmp-nvim-lua' },
 }
